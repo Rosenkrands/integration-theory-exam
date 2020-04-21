@@ -86,9 +86,33 @@
 
 8.9 - Radon-Nikodým Theorem
 
+\begin{theorem}[Radon-Nikodým Theorem]
+    Let $\lambda$ and $\mu$ be $\sigma$-finite measures defined on $m$ and suppose that $\lambda$ is absolutely continuous with respect to $\mu$.
+    Then there exists a function $f$ in $M^+(X,m)$ such that
+    \begin{align}\label{eq:b8.6}
+        \lambda(E) = \int_E f \, d\mu, \quad E \in m.
+    \end{align}
+    Moreover, the functino $f$ is uniquely determined $\mu$-almost everywhere.
+\end{theorem}
+
 8.11 - Lebesgue Decomposition Theorem
 
+\begin{theorem}[Lebesgue Decomposition Theorem]
+    Let $\lambda$ and $\mu$ be $sigma$-finite measures defined on a $sigma$-algebra $m$.
+    Then there exists a measure $\lambda_1$ which is singular with respect to $\mu$ and a measure $\lambda_2$ which is absolutely continuous with respect to $\mu$ such that $\lambda = \lambda_1 + \lambda_2$.
+    Moreover, the measures $\lambda_1$ and $\lambda_2$ are unique.
+\end{theorem}
+
 8.14 - Riesz Representation Theorem
+
+\begin{theorem}[Riesz Representation Theorem]
+    If $(X, m, \mu)$ is a $sigma$-finite measure space and $G$ is a bounded linear functional on $L_1(X, m, \mu)$, then there exists a $g$ in $L_\infty(X, m, \mu)$ such that
+    \begin{align}\label{eq:b8.10}
+        G(f) = \int fg \, d\mu
+    \end{align}
+    holds for all $f$ in $L_1$.
+    Moreover, $\|G\| = \|g\|_\infty$ and $g \geq 0$ if $G$ is a positive linear functional. 
+\end{theorem}
 
 \newpage
 
