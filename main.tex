@@ -1,4 +1,7 @@
 \documentclass{article}
+\usepackage{amsmath,amsthm,amssymb}
+\newtheorem{theorem}{Theorem}[section]
+\numberwithin{equation}{section}
 
 \begin{document}
 
@@ -17,11 +20,34 @@
 \section{Lebesque Integration Theory}
 (Chapter 2-5 of Bartle's book, the most important results are: monotone convergence theorem, Fatou's lemma and Lebesgue dominated convergence theorem)
 
-4.6 - Monotone Convergence Thereom 
+4.6 - Monotone Convergence Thereom
+
+\begin{theorem}[Monotone Convergence Thereom]
+    If $(f_n)$ is a monotone increasing sequence of functions in $M^+(X,m)$ which converges to $f$, then
+    \begin{align}\label{eq:b4.6}
+        \int f \,d\mu = \lim \int f_n  \,d\mu. 
+    \end{align}
+\end{theorem}
 
 4.8 - Fatou's Lemma
 
+\begin{theorem}[Fatou's Lemma]
+    If $(f_n)$ belongs to $M^+(X,m)$, then
+    \begin{align}\label{eq:b4.8}
+        \int (\liminf f_n) \, d\mu \leq \liminf \int f_n \, d\mu.
+    \end{align}
+\end{theorem}
+
 5.6 - Lebesgue Dominated Convergence Theorem
+
+\begin{theorem}[Lebesgue Dominated Convergence Theorem]
+    Let $(f_n)$ be a sequence of integrable function which converges almost everywhere to a real-valued measureable function $f$.
+    If there exists an integrable function $g$ such that $|f_n|\leq g$ for all $n$, then $f$ is integrable and
+    \begin{align}\label{eq:b5.4}
+        \int f \, d\mu = \lim \int f_n \, d\mu.
+    \end{align}
+\end{theorem}
+
 
 \newpage
 
@@ -30,9 +56,28 @@
 
 6.9 - Hölder's Inequality
 
+\begin{theorem}[Hölder's Inequality]
+    Let $f\in L_p$ and $g \in L_q$ where $p>1$ and $(1/p) + (1/q) = 1$.
+    Then $fg\in L_1$ and  $\| fg \|_1 \leq \|f\|_p \|g\|_q$.
+\end{theorem}
+
 6.11 - Minkowski's Inequality
 
+\begin{theorem}[Minkowski's Inequality]
+    If $f$ and $h$ belong to $L_p$, $p \geq 1$, then $f + h$ belongs to $L_p$ and
+    \begin{align}\label{eq:b6.6}
+        \| f + h \|_p \leq \| f \|_p + \| h \|_p.
+    \end{align}
+\end{theorem}
+
 6.14 - Completeness Theorem (Riesz-Fischer Theorem)
+
+\begin{theorem}[Completeness Theorem (Riesz-Fischer Theorem)]
+    If $1\leq p < \infty$, then the space $L_p$ is a complete normed linear space under the norm
+    \begin{align}\label{eq:b-under_th6.14}
+        \| f \|_p = \left\{ \int |f|^p \, d\mu \right\}^{1/p}.
+    \end{align}
+\end{theorem}
 
 \newpage
 
