@@ -122,19 +122,81 @@
 
 9.7 - Carathéodory Extension Theorem
 
+\begin{theorem}[Carathéodory Extension Theorem]
+    the collection $A^*$ of all $\mu^*$-measureable sets is a $\sigma$-algebra containing $A$.
+    Moreover, if $(E_n)$ is a disjoint sequence in $A^*$, then
+    \begin{align}\label{eq:b9.7}
+        \mu^*\left(\bigcup_{n = 1}^\infty E_n \right)
+        = \sum_{n = 1}^\infty \mu^*(E_n).
+    \end{align}
+\end{theorem}
+
 9.8 - Hahn Extension Theorem
+
+\begin{theorem}[Hahn Extension Theorem]
+    Suppose that $\mu$ is a $\sigma$-finite measure on an algebra $A$.
+    Then there exists a unique extension of $\mu$ to a measure on $A^*$.
+\end{theorem}
 
 10.4 - Product Measure Thereom
 
+\begin{theorem}[Product Measure Thereom]
+    If $(X, m, \mu)$ and $(Y, n, \nu)$ are measure spaces, then there exists a measure $\pi$ defined $Z_0 = m \times n$ such that
+    \begin{align}\label{eq:b10.1}
+        \pi(A \times B) = \mu(A)\nu(B)
+    \end{align}
+    for all $A \in m$ and $B \in n$.
+    If these measure spaces are $\sigma$-fintie, then there is a unique measure $\pi$ with property \eqref{eq:b10.1}.
+\end{theorem}
+
 10.9 - Tonelli's Theorem
+
+\begin{theorem}[Tonelli's Theorem]
+    Let $(X, m, \mu)$ and $(Y, n, \nu)$ be a $\sigma$-finite measure space and let $F$ be a nonnegative measureable function on $Z = X \times Y$ to $\overline{\mathbb{R}}$.
+    Then the functions defined on $X$ and $Y$ by
+    \begin{align}\label{eq:b10.4}
+        f(x) = \int_Y F_x \, d\nu, \quad
+        g(y) = \int_X F^y \, d\mu,
+    \end{align}
+    are measureable and
+    \begin{align}\label{eq:b10.5}
+        \int_X f \, d\mu = \int_Z F \, d\pi = \int_Y g \, d\nu.
+    \end{align}
+    In other symbols,
+    \begin{align}\label{eq:b10.6}
+        \int_X\left(\int_Y F \, d\nu \right) \, d\mu =
+        \int_Z F \, d\pi =
+        \int_Y\left(\int_X F \, d\mu \right) \, d\nu.
+    \end{align}
+\end{theorem}
 
 10.10 - Fubini's Theorem
 
+\begin{theorem}[Fubini's Theorem]
+    Let $(X, m, \mu)$ and $(Y, n, \nu)$ be $\sigma$-finite spaces and let the measure $\pi$ on $Z_0 = m \times n$ be the product measure of $\mu$ and $\nu$.
+    If the function $F$ on $Z = X \times Y$ to $\mathbb{R}$ is integrable with respect to $\pi$, then the extended real-valued functions defined almost everywhere by
+    \begin{align}\label{eq:b10.8}
+        f(x) = \int_Y F_x \, d\nu, \quad
+        g(y) = \int_X F^y \, d\mu
+    \end{align}
+    have finite integrals and
+    \begin{align}\label{eq:b10.9}
+        \int_x f \, d\mu = \int_Z F \, d\pi = \int_Y g \, d\nu. 
+    \end{align}
+    In other symbols,
+    \begin{align}\label{eq:b10.10}
+        \int_X \left[\int_Y F \, d\nu\right] \, d\mu =
+        \int_Z F \, d\pi =
+        \int_Y \left[\int_X F \, d\mu\right] \, d\nu.
+    \end{align}
+\end{theorem}
+
 \newpage
 
-\section{TBA}
+\section{Approximation by Nice Functions}
+(Lecture 11-12, the main results are: density in $L^p$ of continuous function with constant support, density in $L^p$ of smooth functions with constant support using the approximate identity).
 
 \newpage
 
-\section{TBA}
+\section{Fourier Transform}
 \end{document}
