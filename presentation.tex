@@ -77,4 +77,179 @@
 \tableofcontents[hideallsubsections]
 \end{frame}
 
+\section{Lebesgue integration theory}
+
+\subsection{Monotone Convergence Theorem}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{theorem}[Monotone Convergence Thereom]
+        If $(f_n)$ is a monotone increasing sequence of functions in $M^+(X,m)$ which converges to $f$, then
+        \begin{align}\label{eq:b4.6}
+            \int f \,d\mu = \lim \int f_n  \,d\mu. 
+        \end{align}
+    \end{theorem}
+\end{frame}
+
+\subsection{Proof of Monotone Convergence Theorem}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    The strategy of the proof is to first show that
+    \begin{align}
+        \lim \int f_n \, d\mu \leq \int f \, d\mu,
+    \end{align}
+    then afterwards to show that also
+    \begin{align}
+        \lim \int f_n \, d\mu \geq \int f \, d\mu,
+    \end{align}
+    in order to conclude that
+    \begin{align}
+        \lim \int f_n \, d\mu = \int f \, d\mu
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    According to Corollary 2.10
+    \begin{corollary}
+        If $(f_n)$ is a sequence in $M(X,m)$ which converges to $f$ on $X$, the $f$ is in $M(X,m)$.
+    \end{corollary}
+    the function $f$ is measurable.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    From Lemma 4.5(1.)
+    \begingroup
+    \small
+    \begin{lemma}
+        \begin{enumerate}
+            \item If $f$ and $g$ belong to $M^+(X,m)$ and $f \leq g$, then
+            \begin{align}
+                \int f \, d\mu \leq \int g \, d\mu.
+            \end{align}
+            \item If $f$ belongs to $M^+(X,m)$, if $E$, $F$ belong to $m$, and if $E\subseteq F$, then
+            \begin{align}
+                \int_E f \, d\mu \leq \int_F f \, d\mu.
+            \end{align}
+        \end{enumerate}
+    \end{lemma}
+    \endgroup
+    we have that
+    \begin{align}
+        \int f_n \, d\mu \leq \int f_{n + 1} \, d\mu \leq \int f \, d\mu, \quad \forall \, n \in \mathbb{N}.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Therefore we must also have that
+    \begin{align}
+        \lim \int f_n \, d\mu \leq \int f \, d\mu.
+    \end{align}
+    So this was the first step of our strategy, now we proceed to the second step.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Let $\alpha \in \mathbb{R}$ be such that $0 < \alpha < 1$ and let $\varphi$ be a simple measurable function such that $0 \leq \varphi \leq f$.
+    
+    Let
+    \begin{align}
+        A_n = \left\{x \in X \, : \, f_n(x) \geq \alpha \varphi(x) \right\},
+    \end{align}
+    such that
+    \begin{enumerate}
+        \item $A_n \in m$
+        \item $A_n \subseteq A_{n + 1}$
+        \item $X = \bigcup A_n$
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    According to Lemma 4.5
+    \begingroup
+    \small
+    \begin{lemma}
+        \begin{enumerate}
+            \item If $f$ and $g$ belong to $M^+(X,m)$ and $f \leq g$, then
+            \begin{align}
+                \int f \, d\mu \leq \int g \, d\mu.
+            \end{align}
+            \item If $f$ belongs to $M^+(X,m)$, if $E$, $F$ belong to $m$, and if $E\subseteq F$, then
+            \begin{align}
+                \int_E f \, d\mu \leq \int_F f \, d\mu.
+            \end{align}
+        \end{enumerate}
+    \end{lemma}
+    \endgroup
+    it must be that
+    \begin{align}
+        \int_{A_n} \alpha \varphi \, d\mu \leq \int_{A_n} f_n \, d\mu \leq \int f_n \, d\mu.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Since the sequence $A$ is monotone increasing and has union $X$, it follows from Lemma 4.3(2.),
+    \begingroup
+    \footnotesize
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \begin{lemma}[4.3]
+                \begin{enumerate}
+                    \item If $\varphi$ and $\psi$ are simple functions in $M^+(X,m)$ and $c \geq 0$, then
+                    \begin{align}
+                        \int c \varphi \, d\mu &= c \int \varphi \, d\mu, \\
+                        \int \left( \varphi + \psi \right) \, d\mu &= \int \varphi \, d\mu + \int \psi \, d\mu.
+                    \end{align}
+                    \item If $\lambda$ is defined for $E$ in $m$ by
+                    \begin{align}
+                        \lambda(E) = \int \varphi \chi_E \, d\mu,
+                    \end{align}
+                    then $\lambda$ is a measure on $m$.
+                \end{enumerate}
+            \end{lemma}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{lemma}[3.4]
+                Let $\mu$ be a measure defined on a $\sigma$-algebra $m$.
+                \begin{enumerate}
+                    \item If $(E_n)$ is an increasing sequence in $m$, then
+                    \begin{align}
+                        \mu\left(\bigcup_{n = 1}^\infty E_n\right) = \lim \mu\left(E_n\right).
+                    \end{align}
+                    \item If $(F_n)$ is a decreasing sequence in $m$ and if $\mu\left(F_1\right) < +\infty$, then
+                    \begin{align}
+                        \mu\left(\bigcap_{n = 1}^\infty F_n\right) = \lim \mu\left(F_n\right).
+                    \end{align}
+                \end{enumerate}
+            \end{lemma}
+        \end{column}
+    \end{columns}
+    \endgroup
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+
+\section{$\mathbf{L^p}$ spaces}
+
+
+
+\section{Decomposition of measures}
+
+
+
+\section{Generation of measures and product measures}
+
+
+
+\section{Approximation by nice functions}
+
+
+
+\section{Fourier transform}
+
 \end{document}
