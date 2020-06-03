@@ -1,0 +1,80 @@
+\documentclass{beamer}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+% american mathematical society
+\usepackage{amsmath,amsthm,amssymb}
+
+% drawing functionality
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+% equation numbering
+\numberwithin{equation}{section}
+
+% theorem types
+\newtheorem{proposition}{Proposition}
+
+% math operators
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\var}{Var}
+\DeclareMathOperator*{\cov}{Cov}
+\DeclareMathOperator{\VaR}{VaR}
+\DeclareMathOperator{\cvar}{CVaR}
+
+% additional mathematical fonts
+\usepackage{mathrsfs}
+
+% remove navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% add slide numbers
+\setbeamertemplate{footline}[frame number]
+
+% title
+\title{Financial Engineering}
+\subtitle{Exam}
+\author{Kasper Rosenkrands}
+\institute{Aalborg University}
+\date{S20}
+
+% toc at each section
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+% definition of comment function itself
+\newcommand{\comment}[1]{
+    \begin{center}
+        \colorbox{yellow}{
+            \textsf{
+                \textbf{#1}
+            }
+        }
+    \end{center}
+}
+\newcommand{\task}[1]{
+    \begin{center}
+        \colorbox{red}{
+            \textsf{
+                \textbf{#1}
+            }
+        }
+    \end{center}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\end{document}
