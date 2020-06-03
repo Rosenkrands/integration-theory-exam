@@ -179,13 +179,13 @@
     \end{lemma}
     \endgroup
     it must be that
-    \begin{align}
+    \begin{align}\label{eq:bartle_4.7}
         \int_{A_n} \alpha \varphi \, d\mu \leq \int_{A_n} f_n \, d\mu \leq \int f_n \, d\mu.
     \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-    Since the sequence $A$ is monotone increasing and has union $X$, it follows from Lemma 4.3(2.),
+    Since the sequence $A$ is monotone increasing and has union $X$, it follows from Lemma 4.3(2.) and Lemma 3.4(1.),
     \begingroup
     \footnotesize
     \begin{columns}
@@ -225,18 +225,32 @@
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    that
+    \begin{align}
+        \int \varphi \, d\mu = \lim \int_{A_n} \varphi \, d\mu.
+    \end{align}
+    Taking the limit as $n$ tends to infinity in \eqref{eq:bartle_4.7} therefore gives that
+    \begin{align}
+        \alpha \int \varphi \, d\mu \leq \lim \int f_n \, d\mu.
+    \end{align}
+    Since this holds for all $0 < \alpha < 1$, by taking the limit as $\alpha$ tends to 1 we obtain
+    \begin{align}
+        \int \varphi \, d\mu \leq \lim \int f_n \, d\mu.
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    As $\varphi$ is any simple function in $M^+$ such that $0 \leq \varphi \leq f$, we can conclude that
+    \begin{align}
+        \int f \, d\mu = \sup_{\varphi} \int \varphi \, d\mu \leq \lim \int f_n \, d\mu,
+    \end{align}
+    which concludes the proof. \hfill $\square$
 \end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
 
 \section{$\mathbf{L^p}$ spaces}
 
-
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
 
 \section{Decomposition of measures}
 
