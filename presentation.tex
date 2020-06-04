@@ -249,9 +249,94 @@
 
 \section{$\mathbf{L^p}$ spaces}
 
+\subsection{Minkowski's Inequality}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{theorem}[Minkowski's Inequality]
+        If $f$ and $h$ belong to $L_p$, $p \geq 1$, then $f + h$ belongs to $L_p$ and
+        \begin{align}\label{eq:b6.6}
+            \| f + h \|_p \leq \| f \|_p + \| h \|_p.
+        \end{align}
+    \end{theorem}
+\end{frame}
+
+\subsection{Proof of Minkowski's Inequality}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{itemize}
+        \item The case of $p = 1$ is equivalent to the triangular inequality and will not be considered here. 
+        \item We suppose $p > 1$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    As both $f$ and $h$ are measurable functions, so is the sum
+    \begin{align}
+        f + h,
+    \end{align}
+    as the sum of measurable functions are also measurable.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    From Corollary 5.4, Theorem 5.5 and the fact that
+    \begin{align}
+        |f + h|^p \leq \left[2 \sup\left\{|f|, |h|\right\}\right]^p \leq 2^p\left\{|f|^p + |h|^p\right\},
+    \end{align}
+    it follows that $f + h \in L^p$.
+    \begingroup
+    \small
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{corollary}[5.4]
+                If $f$ is measurable, $g$ is integrable, and $|f| \leq |g|$, then $f$ is integrable, and
+                \begin{align}
+                    \int |f| \, d\mu \leq \int |g| \, d\mu.
+                \end{align}
+            \end{corollary}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \begin{theorem}[5.5]
+                A constant multiple $\alpha f$ and a sum $f + g$ of functions in $L$ belongs to $L$ and
+                \begin{align}
+                    \int \alpha f \, d\mu,
+                \end{align}
+                \begin{align}
+                    \int (f + g) \, d\mu = \int f \, d\mu + \int g \, d\mu.
+                \end{align}
+            \end{theorem}
+        \end{column}
+    \end{columns}
+    \endgroup
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Using the triangular inequality we can see that
+    \begin{align}
+        |f + h|^p = |f + h||f + h|^{p - 1} \leq |f||f + h|^{p - 1} + |h||f + h|^{p - 1}.
+    \end{align}
+    Since $f + h \in L^p$ it implies that $|f + h|^p \in L^1$
+\end{frame}
+
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
 \end{frame}
 
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
 \section{Decomposition of measures}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
