@@ -314,16 +314,60 @@
     \begin{align}
         |f + h|^p = |f + h||f + h|^{p - 1} \leq |f||f + h|^{p - 1} + |h||f + h|^{p - 1}.
     \end{align}
-    Since $f + h \in L^p$ it implies that $|f + h|^p \in L^1$
+    Since $f + h \in L^p$ it implies that $|f + h|^p \in L^1$.
+    \vspace{1em}
+
+    Assuming that $\frac{1}{p} + \frac{1}{q} = 1$, it implies that
+    \begin{align}
+        \frac{1}{p} + \frac{1}{q} = 1 \,    \Leftrightarrow \, 
+        1 + \frac{p}{q} = p \,              \Leftrightarrow \,
+        \frac{p}{q} = p - 1 \,              \Leftrightarrow \,
+        p = (p - 1)q,
+    \end{align}
+    and thereby that $|f + h|^{p - 1} \in L^q$.
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    We can now apply Hölder's Inequality,
+    \begin{theorem}[Hölder's Inequality]
+        Let $f\in L_p$ and $g \in L_q$ where $p>1$ and $(1/p) + (1/q) = 1$.
+        Then $fg\in L_1$ and  $\| fg \|_1 \leq \|f\|_p \|g\|_q$.
+    \end{theorem}
+    \vspace{1em}
+    
+    to infer that
+    \begin{align}
+        \int |f| |f + h|^{p - 1} \, d\mu &\leq \| f \|_p \left\{ \int |f + h|^{(p - 1)q} \, d\mu \right\}^{1/q} \\
+        &= \|f\|_p \|f + h\|_p^{p/q}.
+    \end{align}
+    Note that exactly the same can be said for the other term
+    \begingroup
+    \footnotesize
+    \begin{align}
+        \int |h| |f + h|^{p - 1} \, d\mu &\leq \| h \|_p \left\{ \int |f + h|^{(p - 1)q} \, d\mu \right\}^{1/q} \\
+        &= \|h\|_p \|f + h\|_p^{p/q}.
+    \end{align}
+    \endgroup
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    This tells us that
+    \begin{align}
+        \| f + h \|_p^p &\leq \| f \|_p \| f + h \|_p^{p/q} + \| h \|_p \| f + h \|_p^{p/q} \\
+        &= \left\{ \|f\|_p + \|h\|_p \right\} \| f + h \|_p^{p/q}. \label{eq:b_min_last}
+    \end{align}
+    If we let $A = \| f + h \|_p = 0$, then the result becomes trivial as a norm by definition is greater than or equal to zero.
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Suppose now that $A \neq 0$ then we can divide \eqref{eq:b_min_last} by $A^{p/q}$
+    \begin{align}
+        \frac{A^p}{A^{p/q}} &\leq \left\{ \|f\|_p + \|h\|_p \right\}\frac{A^{p/q}}{A^{p/q}} \\
+        A^{p-p/q} &\leq \|f\|_p + \|h\|_p,
+        \intertext{by noting that $p - p/q = 1$, we obtain}
+        \| f + h \|_p &\leq \| f \|_p + \| h \|_p,
+    \end{align}
+    which concludes the proof. \hfill $\square$
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
