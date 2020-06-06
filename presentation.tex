@@ -560,7 +560,30 @@
 
 \section{Generation of measures and product measures}
 
+\subsection{Tonelli's Theorem}
+
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begingroup
+    \small
+    \begin{theorem}[Tonelli's Theorem]
+        Let $(X, m, \mu)$ and $(Y, n, \nu)$ be a $\sigma$-finite measure space and let $F$ be a nonnegative measureable function on $Z = X \times Y$ to $\overline{\mathbb{R}}$.
+        Then the functions defined on $X$ and $Y$ by
+        \begin{align}\label{eq:b10.4}
+            f(x) = \int_Y F_x \, d\nu, \quad
+            g(y) = \int_X F^y \, d\mu,
+        \end{align}
+        are measureable and
+        \begin{align}\label{eq:b10.5}
+            \int_X f \, d\mu = \int_Z F \, d\pi = \int_Y g \, d\nu.
+        \end{align}
+        In other symbols,
+        \begin{align}\label{eq:b10.6}
+            \int_X\left(\int_Y F \, d\nu \right) \, d\mu =
+            \int_Z F \, d\pi =
+            \int_Y\left(\int_X F \, d\mu \right) \, d\nu.
+        \end{align}
+    \end{theorem}
+    \endgroup
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
