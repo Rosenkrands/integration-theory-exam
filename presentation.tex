@@ -6,6 +6,9 @@
 % american mathematical society
 \usepackage{amsmath,amsthm,amssymb}
 
+% reversed cases enviroment
+\newenvironment{rcases}{\left.\begin{aligned}}{\end{aligned}\right\rbrace}
+
 % drawing functionality
 \usepackage{tikz}
 \usetikzlibrary{matrix}
@@ -370,23 +373,219 @@
     which concludes the proof. \hfill $\square$
 \end{frame}
 
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
 \section{Decomposition of measures}
 
+\subsection{Definition of Absolute Continuity}
+
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{definition}[Absolutely Continuous]
+        A measure $\lambda$ on $m$ is said to be absolutely continuous with respect to a measure $\mu$ on $m$ if $E \in m$ and $\mu(E) = 0$ imply that $\lambda (E) = 0$.
+        In this case we write $\lambda << \mu$.
+    \end{definition}
+
+    Note that $\mu$ can send more sets to 0 than $\lambda$, but not the other way around.
+\end{frame}
+
+\subsection{Radón-Nikodym Theorem}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{theorem}[Radón-Nikodym Theorem]
+        Let $\lambda$ and $\mu$ be $\sigma$-finite measures defined on $m$ and suppose that $\lambda$ is absolutely continuous with respects to $\mu$.
+        Then there exists a function $f$ in $M^+(X, m)$, such that,
+        %f is a measurable map
+    
+        \begin{align}
+            \lambda(E) = \int_E f d\mu, \quad E \in m.
+        \end{align}
+        %We can therefore convert a measure into a function via the measurable map (f), which is called the density.
+    
+        Moreover, the function $f$ is uniquely determined $\mu$-almost everywhere.
+    \end{theorem}
+\end{frame}
+
+\subsection{Definition of Singular Measure}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{definition}[A Singular Measure]
+        Two measures $\lambda, \mu$ on $m$ are said to be mutually singular if there are disjoint sets $A, B$ in $m$, such that, $X = A \cup B$ and $\lambda (A) = \mu (B) = 0$.
+        In this case we write $\lambda \perp \mu$.
+    \end{definition}
+\end{frame}
+
+\subsection{Lebesgue Decomposition Theorem}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{theorem}[Lebesgue Decomposition Theorem]
+        Let $\lambda$ and $\mu$ be $sigma$-finite measures defined on a $sigma$-algebra $m$.
+        Then there exists a measure $\lambda_1$ which is singular with respect to $\mu$ and a measure $\lambda_2$ which is absolutely continuous with respect to $\mu$ such that $\lambda = \lambda_1 + \lambda_2$.
+        Moreover, the measures $\lambda_1$ and $\lambda_2$ are unique.
+    \end{theorem}
+    \vspace{1em}
+
+    The Theorem is a consequence of the Radon-Nikodým Theorem.
+\end{frame}
+
+\subsection{Proof of Lebesgue Decomposition Theorem}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    It can be shown that a measure $\nu$ can be decomposed
+    \begin{align}
+        \nu = \lambda + \mu
+    \end{align}
+    such that $\nu \text{ is } \sigma\text{-finite}$, $\lambda << \nu$ and $\mu << \nu$.
+    \vspace{1em}
+
+    A consequence of the Radon-Nikodým Theorem is that
+    \begin{align}
+        \exists \, f,g \in M^+(X, m),
+    \end{align}
+    where
+    \begin{align}
+        \lambda(E) = \int_E f \, d\nu, \quad \mu(E) = \int_E g \, d\nu, \qquad \forall \, E \in m.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Define the following sets
+    \begin{align}
+        A := \{ x \in X \, | \, g(x) = 0 \}, \quad B := \{x \in X \,|\, g(x) > 0 \}.
+    \end{align}
+    As $g \in M^+$ we have that
+    \begin{align}
+        A \cup B = X, \quad A \cap B = \emptyset.
+    \end{align}
+    \vspace{1em}
+
+    Define now $\lambda_1, \lambda_2 \, : \, m \longrightarrow \overline{\mathbb{R}}$ by
+    \begin{align}
+        \lambda_1(E) &:= \lambda(E \cap A), \\
+        \lambda_2(E) &:= \lambda(E \cap B).
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    What we now want is to prove that 
+    \begin{enumerate}
+        \item $\lambda_1 \perp \mu$,
+        \item $\lambda_2 << \mu$.
+    \end{enumerate}
+    \vspace{1em}
+
+    We start by proving $\lambda_1 \perp \mu$.
+    From the definition of $A$ we get
+    \begin{align}
+        \begin{rcases}
+        \mu (A) \underbrace{=}_{\text{def. of $\mu$}} \int_A g \, d\nu &\underbrace{=}_{\text{def. of $A$}} 0 \quad\\
+        \lambda_1(B) \underbrace{=}_{\text{def. of $\lambda_1$}} \lambda(B \cap A) \underbrace{=}_{\text{def. of $B$}} \lambda(\emptyset) &= 0
+        \end{rcases}
+        \quad
+        \lambda_1 \perp \mu.
+    \end{align}
+    This proves the first point.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Now we want to show that $\lambda_2 << \mu$.
+    \vspace{1em}
+
+    If $E \in m$ such that $\mu(E) = 0$ then 
+    \begin{align}
+        \int_E g \, d\nu = 0.
+    \end{align}
+    By Corollary 4.10,
+    \begingroup
+    \footnotesize
+    \begin{corollary}[4.10]
+        Suppose that $f$ belongs to $M^+$.
+        Then $f(x) = 0$ $\mu$-almost everywhere on $X$ if and only if
+        \begin{align}
+            \int f \, d\mu.
+        \end{align}
+    \end{corollary}
+    \endgroup
+    this means that $g(x) = 0$ $\nu$-almost everywhere on $E$.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Recall that the terminology $\mu$-almost everywhere means that there exists a subset $N \in m$ with $\mu(N) = 0$ such that the statement holds on the complement of $N$.
+    Thus we have that
+    \begin{align}
+        \begin{rcases}
+            &B := \{x \in X \,|\, g(x) > 0 \} \, \\
+            &\exists \, N \text{ s.t. } \nu(N) = 0 \\
+            &g(x) = 0 \text{ on } E\backslash N
+        \end{rcases}
+        \, \Rightarrow \, E \cap B \underbrace{\subseteq}_{\text{outside $N$, $g(x) = 0$}} N
+    \end{align}
+    \begin{align}
+        \underbrace{\Rightarrow}_{\text{Lemma 3.3}} 0 \leq \nu(E\cap B) \leq \nu(N) = 0 \Rightarrow \nu(E \cap B) = 0.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    But remembering that $\lambda << \nu$ this implies that
+    \begin{align}
+        \lambda(E \cap B) = 0 \implies \lambda_2(E) = 0.
+    \end{align}
+    Thus we have shown that $\lambda_2 << \mu$.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    To show that $\lambda = \lambda_1 + \lambda_2$ remeber that they were constructed from the sets $A$ and $B$.
+    We have that
+    \begin{align}
+        X = A \cup B \quad \text{and} \quad A \cap B = \emptyset.
+    \end{align}
+    For every measurable set $E$ we have that
+    \begin{align}
+        E = (E \cap A) \cup (E \cap B) \quad \text{and} \quad (E \cap A) \cap (E \cap B) = \emptyset.
+    \end{align}
+    Therefore we het that from the countable additivity of a measure that
+    \begin{align}
+        \lambda(E) &= \lambda(E \cap A) + \lambda(E \cap B) \\
+        &= \lambda_1(E) + \lambda_2(E)
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Because this is true for every measurable set we can say that in general
+    \begin{align}
+        \lambda = \lambda_1 + \lambda_2.
+    \end{align}
+    \vspace{1em}
+
+    We have now shown that there existence part of the theorem.
+    To finish the proof we would have to also verify that the $\lambda_1$ and $\lambda_2$, derived here, are unique.
 \end{frame}
 
 \section{Generation of measures and product measures}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
 \end{frame}
