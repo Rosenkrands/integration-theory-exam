@@ -586,16 +586,61 @@
     \endgroup
 \end{frame}
 
+\subsection{Proof of Tonelli's Theorem}
+
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Suppose first that $F = \chi_E$ where $E \in Z$, the result is then a consequence of Lemma 10.8.
+    \begin{lemma}[10.8]
+        Let $(X, m, \mu)$ and $(Y, n, \nu)$ be $\sigma$-finite measure spaces.
+        If $E \in Z = X \times Y$, then the functions defined by
+        \begin{align*}
+            f(x) &= \nu(E_x)\\
+            g(y) &= \mu(E^y)
+        \end{align*}
+        are measurable and 
+        \begin{align*}
+            \int_X f \, d\mu = \pi(E) = \int_Y g \, d\nu.
+        \end{align*}
+    \end{lemma}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Furthermore we have that by the linearity of the integral, that the theorem holds true for every $\varphi$ positive simple function.
+    \vspace{1em}
+
+    Now we would like to extend the result to any nonnegative measurable function.
+    \vspace{1em}
+
+    Let $F \geq 0, \, F \, : \, Z \rightarrow \overline{\mathbb{R}}$ be measurable. 
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Lemma 2.11 thus gives that there exists $(\varPhi_n)$ such that,
+    \begingroup
+    \small
+    \begin{lemma}[2.11]
+        If $f$ is a nonnegative function in $M(X,m)$, then there exists a sequence $(\varphi_n)$ in $M(X,m)$ such that
+        \begin{enumerate}
+            \item $0 \leq \varphi_n(x) \leq \varphi_{n + 1}$ for $x \in m$, $n \in \mathbb{N}$.
+            \item $f(x) = \lim \varphi_n(x)$ for each $x \in m$.
+            \item Each $\varphi_n$ has only a finite number of real values.
+        \end{enumerate}
+    \end{lemma}
+    \endgroup
+    Furthermore Lemma 10.6 gives that every section of $\varPhi_n$ are measurable
+    \begingroup
+    \small
+    \begin{lemma}[10.6]
+        \begin{enumerate}
+            \item If $E$ is a measurable subset of $Z$, then every section of $E$ is measurable.
+            \item If $f$ is a measurable function on $Z$ to $\overline{\mathbb{R}}$, then every section of $f$ is measurable.
+        \end{enumerate}
+    \end{lemma}
+    \endgroup
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
