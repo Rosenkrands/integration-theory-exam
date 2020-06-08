@@ -652,18 +652,52 @@
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Taking the limit of $\varphi_n$ gives
+    \begin{align}
+        \lim_n \varphi_n &= \lim_n \int_Y (\varPhi_n)_x \, d\nu \\
+        \text{(MCT)} \quad &= \int_Y \lim_n \, (\varPhi_n)_x \, d\nu \\
+        \text{(Lemma 2.11)} \quad &= \int_Y F_x \, d\nu \\
+        \text{(def)} \quad &= f,
+    \end{align}
+    the same strategy can be used for $\psi_n$ to obtain
+    \begin{align}
+        \lim_n \psi_n = g.
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Another application of the Monotone Convergence Theorem gives that
+    \begin{align}
+        \lim_n \int_X \varphi_n \, d \mu &= \int_X f \, d \mu,\\
+        \intertext{and that}
+        \lim_n \int_Y \psi_n \, d \mu &= \int_Y g \, d \nu.
+    \end{align}
+    The thing left now is to show that these two expressions are infact equal.
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begingroup
+    \small
+    \begin{align}
+        \lim_{n} \int_X \varphi_n\: d \mu &= \lim_{n} \int_X \bigg( \int_Y   (\Phi_n)_x \:d \nu \bigg)\: d \mu \\
+        &= \lim_{n} \int_X \int_Y   \Phi_n \:d \nu \:d \mu \\
+        \text{(Result for simple functions)} \quad&= \lim_{n} \int_Z   \Phi_n\: d \pi \\
+        &= \lim_{n} \int_Y \Big(\int_X   \Phi_n \:d \mu\Big) \: d \nu \\
+        &=  \lim_{n} \int_Y \psi_n \: d \nu
+    \end{align}
+    \endgroup
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    The Monotone Convergence Theorem gives that
+    \begin{align}
+        \lim_{n} \int_Z \Phi_n \: d \pi = \int_Z F \: d \pi.
+    \end{align}
+    Altogether we can thus conclude that
+    \begin{align*}
+        \int_X f\ d \mu = \int_Z F \: d \pi = \int_Y g\ d \nu,
+    \end{align*}
+    which concludes the proof. \hfill $\square$
 \end{frame}
 
 \section{Approximation by nice functions}
