@@ -11,7 +11,7 @@
 
 % drawing functionality
 \usepackage{tikz}
-\usetikzlibrary{matrix}
+\usetikzlibrary{matrix,patterns}
 
 % equation numbering
 \numberwithin{equation}{section}
@@ -25,6 +25,8 @@
 \DeclareMathOperator*{\cov}{Cov}
 \DeclareMathOperator{\VaR}{VaR}
 \DeclareMathOperator{\cvar}{CVaR}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
 
 % additional mathematical fonts
 \usepackage{mathrsfs}
@@ -702,10 +704,147 @@
 
 \section{Approximation by nice functions}
 
+\subsection{Theorem 3.16}
+
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{theorem}[3.16]
+    Let a measure space be given by $(\mathbb{R}, \mathcal{B}, \lambda)$.
+    The set $\mathcal{C}_c(\mathbb{R})$ of continuous functions with compact support is dense in $L^p(\mathbb{R}, \mathcal{B}, \lambda)$, for $1\leq p < + \infty$.
+    \end{theorem}
+    \vspace{1em}
+
+    \begingroup
+    \small
+    For a function $f$ to have compact support, or $f \in \mathcal{C}_c(\mathbb{R})$, it means that $f$ is continuous and that $\supp(f) \subseteq K$ where $K$ is compact, where $\supp$ is defined as
+    \begin{align}
+        \supp(f) = \left\{x \in X \, | \, f(x) \neq 0 \right\}.
+    \end{align}
+    \endgroup
+\end{frame}
+
+\subsection{Proof of Theorem 3.16}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Using the fact that simple function on compact sets are dense i $L^p$ it is enough to show that we can ``approximate'' every simple function on compact sets, $\tilde{\varphi}$, with a continuous function.
+    \vspace{1em}
+
+    First we fix $\tilde{\varphi}$ and $\varepsilon > 0$, where $\tilde{\varphi} = \sum a_i \chi_{K_i}$ with $K_i$ being a compact set.
+    \vspace{1em}
+
+    Using the fact that we can ``approximate'' any Lebesgue measurable set by an open set, that is $\forall \, A \in \mathcal{L} \supseteq \mathcal B$
+    \begin{align}
+        l^*(A) &= \inf \left\{l^*(\mathcal{O}) \, | \, A \subseteq \mathcal{O}, \ \mathcal{O} \text{ open}\right\},
+    \end{align}
+    we obtain that $\forall \, K$ compact, $\forall \, \varepsilon' > 0$ there exists an open set $\mathcal{O}$ such that $K \subset \mathcal{O}$ and
+    \begin{align}
+        l^*(\mathcal{O}\backslash K) &\leq \varepsilon'.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    No matter what $\varepsilon'$ we choose we are able to find an open set so that the previous equation is satisfied.
+    Lets defines $\varepsilon'$ as
+    \begin{align}
+        \varepsilon' = \left( \frac{\varepsilon}{\sum |a_i|} \right)^p.
+    \end{align}
+    Now we need to find a continuous function $f \, : \, \mathbb{R} \to [0,1]$ suhc that
+    \begin{enumerate}
+        \item $\supp(f)$ is compact.
+        \item $f(x) = 1$ for $x \in K$.
+        \item $f(x) = 0$ for $x \in \mathbb{R}\backslash \mathcal{O}$.
+    \end{enumerate}
+    As we are in $\mathbb{R}$ the function can be written explicitly as;
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{align}\label{eq:function_in_r}
+        f_i(x):=\frac{\text{dist}(x, C(\mathcal{O}_i))}{\text{dist}(x, C(\mathcal{O}_i))+\text{dist}(x, K_i)}.
+    \end{align}
+    where $\dist(x, E) = \inf \left\{|x - z| \, : \, z \in E\right\}$ for $ E \in \mathcal{B}$.
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \draw [->] (-1,0) -- (4,0);
+            \draw [->] (0,-1) -- (0,2);
+            \node at (1,0) {$[$};
+            \node at (3,0) {$]$};
+            \node at (2,-0.5) {$K$};
+            %\draw [thick, decoration = {brace, mirror, raise = 0.5cm}, decorate] (1,0) -- (3,0);
+            \draw [blue, thick] (-1,0) -- (0.5,0) -- (1,1.5) -- (3,1.5) -- (3.5,0) -- (4,0);
+            \node at (0.5,0) {$($};
+            \node at (3.5,0) {$)$};
+            \node at (0.75,-0.5) {$\mathcal{O}$};
+            \draw [dashed] (1,0) -- (1,1.5);
+            \draw [dashed] (3,0) -- (3,1.5);
+        \end{tikzpicture}
+        \caption{Function given in \eqref{eq:function_in_r}.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    The first to properties follows immediately, so we are left to show continuity.
+    We have that
+    \begin{align}
+        \forall z \in E \, : \, \text{dist}(x, E) \leq |x-z|\leq |x-y|+|y-z|.
+    \end{align}
+    Taking the $\inf$ over $E \in Z$ yields
+    \begin{align}
+        \text{dist}(x, E)\leq |x-y|+\text{dist}(y, E),
+    \end{align}
+    the reverse inequality is obtained in the same way
+    \begin{align}
+        \text{dist}(y, E)\leq |x-y|+\text{dist}(x, E).
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Thus we see that
+    \begin{align*}
+        |\text{dist}(x, E)-\text{dist}(y, E)|\leq |x-y|,
+    \end{align*}
+    which gives the continuity of the $\dist$ function, which makes $f_i$ a composition of continuous function and thus it is continuous.
+    Furthermore the denominator cannot be zero.
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    We can now $\forall \, K_i$ construct $f_i$.
+    Lets now define the function
+    \begin{align}
+        F = \sum a_i f_i.
+    \end{align}
+    Using the triangular inequality on the $p$-norm of the difference between $\tilde{\varphi}$ and $F$ gives
+    \begin{align}
+        ||\tilde{\varphi}-F ||_p \ \leq  \sum |a_i| \, ||\chi_{K_i}-f_i ||_p.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    The left part of the inequality (raised to the $p$-th power) satisfies
+    \begin{align}
+        ||\chi_{K_i} - f_i ||_p^p &= \int_{\mathbb{R}} | \chi_{K_i}(x) - f_i (x)|^p dx\\
+         &= \int_{\mathcal{O}_i \backslash K_i} |f_i (x)|^p dx \\
+         &\leq l^*(\mathcal{O}_i \backslash K_i) \\
+         &\leq \left(\frac{\varepsilon}{\sum| a_i|}\right)^p,
+    \end{align}
+    this implies that
+    \begin{align}
+        ||\tilde{\varphi} - F||_p \leq \varepsilon.
+    \end{align}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    We have now shown that we can ``approximate'' every simple function with compact support by a continuous function, which concludes the proof. \hfill $\square$
 \end{frame}
 
 \section{Fourier transform}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+\end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
 \end{frame}
