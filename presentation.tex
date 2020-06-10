@@ -38,7 +38,7 @@
 \setbeamertemplate{footline}[frame number]
 
 % title
-\title{Financial Engineering}
+\title{Integration Theory}
 \subtitle{Exam}
 \author{Kasper Rosenkrands}
 \institute{Aalborg University}
@@ -861,52 +861,86 @@
     \end{align}
     \vspace{1em}
 
-    The first thing we will prove in that the Fourier Transform is injective, suppose therefore that we have already proved \eqref{eq:rainbow_star}.
+    The first thing we will prove is that the Fourier Transform is injective, suppose therefore that we have already proved \eqref{eq:rainbow_star}.
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    For $F$ to be injective, it means that
+    \begin{align}
+        f_1 \neq f_2 \ \Rightarrow \ F(f_1) \neq F(f_2).
+    \end{align}
+    We will use proof by contradiction, so assume that
+    \begin{align}
+        F(f_1) = F(f_2),
+    \end{align}
+    by linearity we have that
+    \begin{align}
+        F(f_1 - f_2) = F(f_1) - F(f_2) &= 0 \\
+        \intertext{but this is also equal to}
+        &= \widehat{(f_1 - f_2)}(p), \quad \forall \, p \in \hat{\mathbb{R}}.
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    As $f_1 - f_2 \in L^1(\mathbb{R})$, \eqref{eq:rainbow_star} gives that
+    \begin{align}
+        (f_1 - f_2)(x) = 0 \implies f_1 = f_2,
+    \end{align}
+    which is a contradiction.
+    Thus we conclude that the Fourier Transform is an injective map.
+    \vspace{1em}
+
+    Next we can prove \eqref{eq:rainbow_star}.
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Let 
+    \begin{align}
+        \phi_\varepsilon(x) := \frac{1}{\sqrt{2 \pi}} e^{-\varepsilon \frac{|x|^2}{2}}
+    \end{align}
+    then we can rewrite the right hand side of \eqref{eq:rainbow_star} as
+    \begin{align}
+        \frac{1}{\sqrt{2 \pi}} \int_\mathbb{R} e^{ipx}e^{- \varepsilon |p|^2/2} \hat{f}(p) \, dp &= \int_\mathbb{R} e^{ipx} \phi_\varepsilon(p) \hat{f}(p) \, dp \\
+        &= \frac{1}{\sqrt{2 \pi}} \int_\mathbb{R} \int_\mathbb{R} e^{ipx}  \phi_\varepsilon(p) e^{-ipy} f(y) \, dy \, dp.
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    By Tonelli's Theorem we have that the following inequality holds
+    \begin{align}
+        | e^{ipx}e^{-ipy} \phi_\varepsilon(p) f(y) | \leq \underbrace{|\phi_\varepsilon(p) |}_{\in \, L^1(\hat{\mathbb{R})}} \underbrace{| f(y) |}_{\in \, L^1(\mathbb{R})} \overbrace{\in}^{\text{Tonelli}} L^1( \mathbb{R} \times \mathbb{R}).
+    \end{align}
+    Applying now Fubini's Theorem gives
+    \begin{align}
+        \int_\mathbb{R} \widehat{\left( e^{ipx} \phi_\varepsilon  \right)}(y) f(y) \, dy &\overbrace{=}^{\text{Lemma 7.2 (2.)}} \int_\mathbb{R} \hat{\phi}_\varepsilon(y-x) f(y) \, dy \\
+        &\overbrace{=}^{\text{Gaussian Lemma}} \int_\mathbb{R} \frac{1}{\sqrt{\varepsilon}} \phi_{\frac{1}{\varepsilon}}(y - x) f(y) \\ 
+        &= (\Phi_\varepsilon * f)(x),
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Where $\Phi_\varepsilon(x)$ is defined as
+    \begin{align}
+        \Phi_\varepsilon(x) := \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\varepsilon}}e^{-\frac{|x|^2}{2\varepsilon}},
+    \end{align}
+    where we have that $\Phi_\varepsilon(x)$ is an approximate identity, this means that
+    \begin{align}
+        \Phi_\varepsilon \geq 0, \ \Phi_\varepsilon \in C^\infty \text{ and }
+        \int_\mathbb{R} \Phi_\varepsilon(x) dx = \underbrace{\frac{1}{\sqrt{2 \pi}} \int e^{-\frac{|x|^2}{2 \varepsilon}} dx}_{\text{Gaussian integral}} = 1
+    \end{align}
 \end{frame}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
-\end{frame}
-
-\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    Taking now the limit as $\varepsilon$ goes to zero and using linear change of variable and the Dominated Convergence Theorem yields
+    \begin{align}
+        \forall r>0 \ \lim_{\varepsilon \rightarrow 0} \int_{|x| \geq r} \Phi_\varepsilon(x) \, dx = \lim_{\varepsilon \rightarrow 0} \int_{|x| \geq \frac{r}{\sqrt{\varepsilon}}} e^{-\frac{|x|^2}{2}} \, dx = 0
+    \end{align}
+    The right hand side thus becomes
+    \begin{align}
+        \lim_{\varepsilon \rightarrow 0} \Phi_\varepsilon * f = f,
+    \end{align}
+    by Lemma 3.19.
+    This concludes the proof. \hfill $\square$
 \end{frame}
 
 \end{document}
