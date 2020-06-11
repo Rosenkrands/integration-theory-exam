@@ -84,6 +84,29 @@
 
 \section{Lebesgue integration theory}
 
+\subsection{Definitions}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{definition}[$\sigma$-algebra]
+        A family $m$ of subsets of a set $X$ is said to be a $\sigma$-algebra if
+        \begin{enumerate}
+            \item $\emptyset, X$ belongs to $m$
+            \item If $A$ belongs to $X$, then the complement $\mathcal{C}(A) = X \setminus A$ belongs to $m$. 
+            \item If $(A_n)$ is a sequence of sets in in $X$ then the infinte union belongs to $X$. 
+        \end{enumerate}
+        An ordered pair $(X, m)$ consisting of a set $X$ and a $\sigma$-algebra $m$ of subsets of $X$ is called measurable space.
+    \end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
+    \begin{definition}[Measurable Function]
+        A function $f \, : \, X \to \mathbb{R}$ is said to be $m$-measurable if $\forall \, \alpha \in \mathbb{R}$
+        \begin{align}
+            \left\{ x \in X \, : \, f(x) > \alpha \right\} \in m.
+        \end{align}
+    \end{definition}
+\end{frame}
+
 \subsection{Monotone Convergence Theorem}
 
 \begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}
